@@ -1,0 +1,37 @@
+<%= form_with scope: :song, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :artist %><br>
+    <%= form.text_field :artist %>
+  </p>
+ 
+  <p>
+    <%= form.label :chords %><br>
+    <%= form.text_field :chords %>
+  </p>
+	
+
+  <p>
+    <%= form.label :strumming %><br>
+    <%= form.text_field :strumming %>
+  </p>
+
+  <p>
+    <%= form.label :capo %><br>
+    <%= form.text_field :capo %> --TODO
+  </p>
+
+  <p>
+    <%= form.label :level %><br>
+    <%= form.text_field :level %> 
+  </p>
+
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
