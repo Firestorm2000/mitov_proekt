@@ -6,7 +6,6 @@ class CreateSongs < ActiveRecord::Migration[5.1]
       t.text :chords
       t.text :strumming
       t.integer :capo
-      t.integer :level
       t.timestamps
     end
   end

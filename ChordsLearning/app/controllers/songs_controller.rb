@@ -7,13 +7,12 @@ class SongsController < ApplicationController
 	end
 
 	def create
-		@song =Song.new(params.require(:song).permit(:name, :artist, :chords, :strumming, :capo)) #:level
+		@song =Song.new(params.require(:song).permit(:name, :artist, :chords, :strumming, :capo))
 		@song.name = params[:name]
 		@song.artist = params[:artist]
 		@song.chords = params[:chords]
 		@song.strumming = params[:strumming]
 		@song.capo = params[:capo]
-		#@song.level = params[:level]
 		if @song.save 
 			redirect_to :action => 'show'
 		else 
