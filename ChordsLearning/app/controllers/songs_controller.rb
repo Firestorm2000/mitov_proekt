@@ -14,13 +14,13 @@ class SongsController < ApplicationController
 		@song.chords = params[:chords]
 		@song.strumming = params[:strumming]
 		@song.capo = params[:capo]
-		if @song.save 
+		if @song.save
 			redirect_to :action => 'show'
-		else 
+		else
 			render plain: "Not Successful"
 		end
 	end
-	
+
 	def show
 	end
 
