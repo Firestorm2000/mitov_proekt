@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "artists"%>
 <p id="notice"><%= notice %></p>
 
 <h1>Artists</h1>
@@ -15,12 +16,12 @@
   <tbody>
     <% @artists.each do |artist| %>
       <tr>
+        <%-# commented line -%>
         <td><%= artist.name %></td>
         <td><%= artist.id_artist %></td>
-        <td><%= artist.song %></td>
-        <td><%= link_to 'Show', artist %></td>
-        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Show', artist %></td>
+        <td><%= button_to 'Edit', edit_artist_path(artist) %></td>
+        <td><%= button_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
