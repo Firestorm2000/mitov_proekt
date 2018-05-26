@@ -6062,3 +6062,652 @@ Processing by ArtistsController#show as HTML
 Completed 200 OK in 41ms (Views: 34.9ms | ActiveRecord: 3.4ms)
 
 
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7310183476542064440)[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArtists (20180521175333)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (166.3ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "id_artist" integer, "song_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_4bdb31a68e"
+FOREIGN KEY ("song_id")
+  REFERENCES "songs" ("id")
+)[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE  INDEX  "index_artists_on_song_id" ON "artists"  ("song_id")[0m
+  [1m[35mSQL (9.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180521175333"]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePgSearchDocuments (20180522065508)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (19.6ms)[0m  [1m[35mCREATE TABLE "pg_search_documents" ("id" bigserial primary key, "content" text, "searchable_type" character varying, "searchable_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX  "index_pg_search_documents_on_searchable_type_and_searchable_id" ON "pg_search_documents"  ("searchable_type", "searchable_id")[0m
+  [1m[35mSQL (4.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180522065508"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateChords (20180522071345)
+  [1m[35m (4.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (55.5ms)[0m  [1m[35mCREATE TABLE "chords" ("id" bigserial primary key, "chord" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (4.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180522071345"]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (4.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7310183476542064440)[0m
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-05-26 11:35:41 +0300
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (5.1ms)
+Started GET "/" for 127.0.0.1 at 2018-05-26 11:35:43 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+Started GET "/" for 127.0.0.1 at 2018-05-26 11:35:48 +0300
+Processing by HomeController#index as HTML
+Started GET "/" for 127.0.0.1 at 2018-05-26 11:35:49 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.5ms)
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 126262ms (Views: 126210.7ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 119584ms (Views: 119378.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 119156ms (Views: 119050.5ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 124925ms (Views: 124917.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-26 11:38:58 +0300
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  Rendered songs/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 580ms (Views: 303.8ms | ActiveRecord: 39.0ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-26 11:38:59 +0300
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  Rendered songs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 309ms (Views: 279.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-26 11:39:06 +0300
+Processing by ChordsController#index as HTML
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (13.8ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (81.5ms)
+Completed 200 OK in 361ms (Views: 314.2ms | ActiveRecord: 26.5ms)
+
+
+Started GET "/chords/new" for 127.0.0.1 at 2018-05-26 11:41:13 +0300
+Processing by ChordsController#new as HTML
+  Rendering chords/new.html.erb within layouts/application
+  Rendered chords/_form.html.erb (144.5ms)
+  Rendered chords/new.html.erb within layouts/application (154.6ms)
+Completed 200 OK in 508ms (Views: 454.0ms | ActiveRecord: 8.4ms)
+
+
+Started POST "/chords" for 127.0.0.1 at 2018-05-26 11:41:18 +0300
+Processing by ChordsController#create as HTML
+  Parameters: {"authenticity_token"=>"Ar7Be44kNpY7Gg4PPlNZTnSdvbTaC+L1s3Y0/zipqOsAoXedMx6CXXJo+H108W+RT4g4pF9pp+ZYUEMJdISgRg=="}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: chord):
+  
+app/controllers/chords_controller.rb:72:in `chord_params'
+app/controllers/chords_controller.rb:27:in `create'
+Started POST "/chords" for 127.0.0.1 at 2018-05-26 11:42:10 +0300
+Processing by ChordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7njQJLhgvTndywzLbJVoj5TXLm6P2qE+tYeC5+0ewhnsZ2bCBVoJ8pS5+rkmN15Qr8Krfgq45C1eofURoTPKtA==", "chord"=>{"chord"=>""}, "commit"=>"Create Chord"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (7.1ms)[0m  [1m[32mINSERT INTO "chords" ("chord", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["chord", ""], ["created_at", "2018-05-26 08:42:10.219401"], ["updated_at", "2018-05-26 08:42:10.219401"]]
+  [1m[35m (14.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/chords/1
+Completed 302 Found in 58ms (ActiveRecord: 22.0ms)
+
+
+Started GET "/chords/1" for 127.0.0.1 at 2018-05-26 11:42:10 +0300
+Processing by ChordsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChord Load (1.0ms)[0m  [1m[34mSELECT  "chords".* FROM "chords" WHERE "chords"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/show.html.erb within layouts/application
+  Rendered chords/show.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 366ms (Views: 325.5ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/chords/1/edit" for 127.0.0.1 at 2018-05-26 11:42:14 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/chords/1/edit"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/artists" for 127.0.0.1 at 2018-05-26 11:43:22 +0300
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (14.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  Rendered artists/index.html.erb within layouts/application (77.1ms)
+Completed 200 OK in 390ms (Views: 314.3ms | ActiveRecord: 26.9ms)
+
+
+Started GET "/artists/new" for 127.0.0.1 at 2018-05-26 11:43:24 +0300
+Processing by ArtistsController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/new.html.erb within layouts/application
+  Rendered artists/_form.html.erb (35.8ms)
+  Rendered artists/new.html.erb within layouts/application (52.3ms)
+Completed 200 OK in 458ms (Views: 342.9ms | ActiveRecord: 9.8ms)
+
+
+Started POST "/artists" for 127.0.0.1 at 2018-05-26 11:43:27 +0300
+Processing by ArtistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WgKpPYvmEOkof+3Rv6YkEGzUPgt5zqAdeer3Cw7SB9DNx1Eroov1FJlyCHWf8E1mHjVzUAJGZGAaKD6YZoRd2g==", "artist"=>{"name"=>"", "id_artist"=>"", "song_id"=>""}, "commit"=>"Create Artist"}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering artists/new.html.erb within layouts/application
+  Rendered artists/_form.html.erb (42.1ms)
+  Rendered artists/new.html.erb within layouts/application (53.2ms)
+Completed 200 OK in 448ms (Views: 348.3ms | ActiveRecord: 18.6ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-26 11:43:32 +0300
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (3.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  Rendered artists/index.html.erb within layouts/application (33.2ms)
+Completed 200 OK in 361ms (Views: 332.5ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-26 11:43:35 +0300
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (2.6ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  Rendered artists/index.html.erb within layouts/application (32.1ms)
+Completed 200 OK in 290ms (Views: 261.6ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-26 11:43:40 +0300
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (1.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  Rendered artists/index.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 384ms (Views: 367.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-26 17:14:09 +0300
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (32.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  Rendered songs/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 713ms (Views: 553.9ms | ActiveRecord: 32.9ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-26 17:14:13 +0300
+Processing by ChordsController#index as HTML
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (0.9ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (59.4ms)
+Completed 200 OK in 402ms (Views: 381.5ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/chords/1" for 127.0.0.1 at 2018-05-26 17:14:32 +0300
+Processing by ChordsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8qid5gQ9KjWRepkbTinlAyChwJC3oOC3QzXxDJEzrFFMJCf2Zjb/U/EBoy6Zrc5LteTme/E3pSjhuHGtyi8CQQ==", "id"=>"1"}
+  [1m[36mChord Load (3.2ms)[0m  [1m[34mSELECT  "chords".* FROM "chords" WHERE "chords"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.2ms)[0m  [1m[31mDELETE FROM "chords" WHERE "chords"."id" = $1[0m  [["id", 1]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/chords
+Completed 302 Found in 75ms (ActiveRecord: 16.1ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-26 17:14:32 +0300
+Processing by ChordsController#index as HTML
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (1.5ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (52.2ms)
+Completed 200 OK in 417ms (Views: 409.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/chords/new" for 127.0.0.1 at 2018-05-26 17:14:37 +0300
+Processing by ChordsController#new as HTML
+  Rendering chords/new.html.erb within layouts/application
+  Rendered chords/_form.html.erb (18.6ms)
+  Rendered chords/new.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 502ms (Views: 489.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/chords" for 127.0.0.1 at 2018-05-26 17:14:45 +0300
+Processing by ChordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jhZHXa8YQ2UUBHdfmPgQFFN9zg3wjZ153H2qnFZKOQSMCfG7EiL3rl12gS3SWibLaGhLHXXv2Go3W91qGmcxqQ==", "chord"=>{"chord"=>"dad"}, "commit"=>"Create Chord"}
+  [1m[35m (4.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.7ms)[0m  [1m[32mINSERT INTO "chords" ("chord", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["chord", "dad"], ["created_at", "2018-05-26 14:14:45.773207"], ["updated_at", "2018-05-26 14:14:45.773207"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/chords/2
+Completed 302 Found in 39ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/chords/2" for 127.0.0.1 at 2018-05-26 17:14:45 +0300
+Processing by ChordsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mChord Load (7.1ms)[0m  [1m[34mSELECT  "chords".* FROM "chords" WHERE "chords"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering chords/show.html.erb within layouts/application
+  Rendered chords/show.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 351ms (Views: 328.6ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/chords/2/edit" for 127.0.0.1 at 2018-05-26 17:14:49 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/chords/2/edit"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/chords" for 127.0.0.1 at 2018-05-26 17:18:39 +0300
+Processing by ChordsController#create as HTML
+  Parameters: {"authenticity_token"=>"AaezcXRu6rzMbT3nR1hkEfEBFGx+xpDUlDwlgDdtwFB4P0lA3rYpR6Xqpc+6SpJDnLPmK93K2r6clgO9lT4hlQ=="}
+Completed 400 Bad Request in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: chord):
+  
+app/controllers/chords_controller.rb:72:in `chord_params'
+app/controllers/chords_controller.rb:27:in `create'
+Started POST "/chords" for 127.0.0.1 at 2018-05-26 17:22:47 +0300
+Processing by ChordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jhZHXa8YQ2UUBHdfmPgQFFN9zg3wjZ153H2qnFZKOQSMCfG7EiL3rl12gS3SWibLaGhLHXXv2Go3W91qGmcxqQ==", "chord"=>{"chord"=>"dad"}, "commit"=>"Create Chord"}
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (16.3ms)[0m  [1m[32mINSERT INTO "chords" ("chord", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["chord", "dad"], ["created_at", "2018-05-26 14:22:47.214339"], ["updated_at", "2018-05-26 14:22:47.214339"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/chords/3
+Completed 302 Found in 103ms (ActiveRecord: 24.1ms)
+
+
+Started GET "/chords/3" for 127.0.0.1 at 2018-05-26 17:22:47 +0300
+Processing by ChordsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mChord Load (3.2ms)[0m  [1m[34mSELECT  "chords".* FROM "chords" WHERE "chords"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering chords/show.html.erb within layouts/application
+  Rendered chords/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 649ms (Views: 626.1ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/chords/3/edit" for 127.0.0.1 at 2018-05-26 17:23:08 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/chords/3/edit"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/artists" for 127.0.0.1 at 2018-05-26 17:33:22 +0300
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (6.8ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  Rendered artists/index.html.erb within layouts/application (2450.3ms)
+Completed 200 OK in 3432ms (Views: 2946.1ms | ActiveRecord: 59.1ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-26 17:33:29 +0300
+Processing by ChordsController#index as HTML
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (5.1ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (135.2ms)
+Completed 200 OK in 466ms (Views: 419.0ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/chords/new" for 127.0.0.1 at 2018-05-26 17:33:37 +0300
+Processing by ChordsController#new as HTML
+  Rendering chords/new.html.erb within layouts/application
+  Rendered chords/_form.html.erb (122.4ms)
+  Rendered chords/new.html.erb within layouts/application (133.9ms)
+Completed 200 OK in 514ms (Views: 509.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/chords" for 127.0.0.1 at 2018-05-26 17:33:41 +0300
+Processing by ChordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ajtNyZ7y0w8vuSaJrVzD77Lu4CAUpWyQyoMSK+hCuIZoJPsvI8hnxGbL0Pvn/vUwiftlMJHHKYMhpWXdpG+wKw==", "chord"=>{"chord"=>"nn"}, "commit"=>"Create Chord"}
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.7ms)[0m  [1m[32mINSERT INTO "chords" ("chord", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["chord", "nn"], ["created_at", "2018-05-26 14:33:41.120553"], ["updated_at", "2018-05-26 14:33:41.120553"]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/chords/4
+Completed 302 Found in 49ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/chords/4" for 127.0.0.1 at 2018-05-26 17:33:41 +0300
+Processing by ChordsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mChord Load (2.5ms)[0m  [1m[34mSELECT  "chords".* FROM "chords" WHERE "chords"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering chords/show.html.erb within layouts/application
+  Rendered chords/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 385ms (Views: 344.5ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-26 17:33:47 +0300
+Processing by ChordsController#index as HTML
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (3.5ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (46.2ms)
+Completed 200 OK in 369ms (Views: 360.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-26 17:34:52 +0300
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (1.6ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  Rendered artists/index.html.erb within layouts/application (33.6ms)
+Completed 200 OK in 335ms (Views: 306.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/artists/new" for 127.0.0.1 at 2018-05-26 17:34:54 +0300
+Processing by ArtistsController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/new.html.erb within layouts/application
+  Rendered artists/_form.html.erb (48.0ms)
+  Rendered artists/new.html.erb within layouts/application (53.5ms)
+Completed 200 OK in 410ms (Views: 329.5ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/artists" for 127.0.0.1 at 2018-05-26 17:34:57 +0300
+Processing by ArtistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TOZedm31GZDI32/3f+kaVjpzQ3E/xaixL3/0WeRWNFLbI6ZgRJj8bXnSilNfv3MgSJIOKkRNbMxMvT3KjABuWA==", "artist"=>{"name"=>"", "id_artist"=>"", "song_id"=>""}, "commit"=>"Create Artist"}
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  Rendering artists/new.html.erb within layouts/application
+  Rendered artists/_form.html.erb (35.1ms)
+  Rendered artists/new.html.erb within layouts/application (61.4ms)
+Completed 200 OK in 560ms (Views: 421.6ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/artists" for 127.0.0.1 at 2018-05-26 17:35:08 +0300
+Processing by ArtistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M1bZl/OvsHBD6R+xVH1SQPqBYCPBcSOQcrvWlUnR97BKziOmWXdziypuh5mpb6QSlzOSZGJ9afp6EfCo64IWdQ==", "artist"=>{"name"=>"da", "id_artist"=>"1", "song_id"=>"1"}, "commit"=>"Create Artist"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (11.6ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (25.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "id_artist", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "da"], ["id_artist", 1], ["song_id", 1], ["created_at", "2018-05-26 14:35:08.694433"], ["updated_at", "2018-05-26 14:35:08.694433"]]
+  [1m[36mPgSearch::Document Load (3.9ms)[0m  [1m[34mSELECT  "pg_search_documents".* FROM "pg_search_documents" WHERE "pg_search_documents"."searchable_id" = $1 AND "pg_search_documents"."searchable_type" = $2 LIMIT $3[0m  [["searchable_id", 1], ["searchable_type", "Artist"], ["LIMIT", 1]]
+  [1m[35mSQL (6.0ms)[0m  [1m[32mINSERT INTO "pg_search_documents" ("content", "searchable_type", "searchable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "da"], ["searchable_type", "Artist"], ["searchable_id", 1], ["created_at", "2018-05-26 14:35:08.868363"], ["updated_at", "2018-05-26 14:35:08.868363"]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/artists/1
+Completed 302 Found in 382ms (ActiveRecord: 93.1ms)
+
+
+Started GET "/artists/1" for 127.0.0.1 at 2018-05-26 17:35:08 +0300
+Processing by ArtistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArtist Load (1.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/show.html.erb within layouts/application
+  [1m[36mSong Load (1.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/show.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 359ms (Views: 312.9ms | ActiveRecord: 6.5ms)
+
+
+Started POST "/artists/1/edit" for 127.0.0.1 at 2018-05-26 17:35:12 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/artists/1/edit"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/artists" for 127.0.0.1 at 2018-05-26 17:36:52 +0300
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (3.5ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  Rendered artists/index.html.erb within layouts/application (65.2ms)
+Completed 200 OK in 439ms (Views: 392.0ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/artists/new" for 127.0.0.1 at 2018-05-26 17:36:54 +0300
+Processing by ArtistsController#new as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/new.html.erb within layouts/application
+  Rendered artists/_form.html.erb (26.7ms)
+  Rendered artists/new.html.erb within layouts/application (37.2ms)
+Completed 200 OK in 386ms (Views: 360.2ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/artists" for 127.0.0.1 at 2018-05-26 17:37:06 +0300
+Processing by ArtistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xplkEJUAOKOsBv7xIBagtUn6GF4Fon2VtsR/WCQVRZ5RXJwGvG3dXh0LG1UAQMnDOxtVBX4quejVBrbLTEMflA==", "artist"=>{"name"=>"r", "id_artist"=>"1", "song_id"=>"na"}, "commit"=>"Create Artist"}
+  [1m[36mUser Load (8.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (9.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (3.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[35m (5.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering artists/new.html.erb within layouts/application
+  Rendered artists/_form.html.erb (29.2ms)
+  Rendered artists/new.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 383ms (Views: 326.1ms | ActiveRecord: 26.5ms)
+
+
+Started POST "/artists" for 127.0.0.1 at 2018-05-26 17:37:15 +0300
+Processing by ArtistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"69Smj4Q3bSKZALDw5n8YMCD53ujOx9t1lVEpvvpkaUuSTFy+Lu+u2fCHKNgbbe5iTUssr23LkR+d+w+DWDeIjg==", "artist"=>{"name"=>"r", "id_artist"=>"1", "song_id"=>"1"}, "commit"=>"Create Artist"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (8.6ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "artists" ("name", "id_artist", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "r"], ["id_artist", 1], ["song_id", 1], ["created_at", "2018-05-26 14:37:15.486235"], ["updated_at", "2018-05-26 14:37:15.486235"]]
+  [1m[36mPgSearch::Document Load (5.7ms)[0m  [1m[34mSELECT  "pg_search_documents".* FROM "pg_search_documents" WHERE "pg_search_documents"."searchable_id" = $1 AND "pg_search_documents"."searchable_type" = $2 LIMIT $3[0m  [["searchable_id", 2], ["searchable_type", "Artist"], ["LIMIT", 1]]
+  [1m[35mSQL (2.8ms)[0m  [1m[32mINSERT INTO "pg_search_documents" ("content", "searchable_type", "searchable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "r"], ["searchable_type", "Artist"], ["searchable_id", 2], ["created_at", "2018-05-26 14:37:15.520349"], ["updated_at", "2018-05-26 14:37:15.520349"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/artists/2
+Completed 302 Found in 91ms (ActiveRecord: 24.9ms)
+
+
+Started GET "/artists/2" for 127.0.0.1 at 2018-05-26 17:37:15 +0300
+Processing by ArtistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArtist Load (3.9ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/show.html.erb within layouts/application
+  [1m[36mSong Load (4.9ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/show.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 367ms (Views: 329.3ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/artists/2/edit" for 127.0.0.1 at 2018-05-26 17:37:20 +0300
+Processing by ArtistsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArtist Load (7.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/edit.html.erb within layouts/application
+  Rendered artists/_form.html.erb (30.1ms)
+  Rendered artists/edit.html.erb within layouts/application (49.2ms)
+Completed 200 OK in 389ms (Views: 361.7ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-26 17:37:24 +0300
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  Rendered songs/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 380ms (Views: 358.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at 2018-05-26 17:40:40 +0300
+Processing by SongsController#new as HTML
+  [1m[36mUser Load (7.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering songs/new.html.erb within layouts/application
+  Rendered songs/new.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 376ms (Views: 348.4ms | ActiveRecord: 7.8ms)
+
+
+Started POST "/songs/new" for 127.0.0.1 at 2018-05-26 17:40:55 +0300
+Processing by SongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1p7wkQ/oagmMCptnovuQ+PCbU4wzpgc2MO72UDJkSnevBgqgpTCp8uWNA09f6WaqnSmhy5CqTVw4RNBtkDersg==", "song"=>{"name"=>"g", "artist"=>"g", "chords"=>"h", "strumming"=>"u", "capo"=>"4"}, "commit"=>"Save Song"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.5ms)[0m  [1m[32mINSERT INTO "songs" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-05-26 14:40:56.001538"], ["updated_at", "2018-05-26 14:40:56.001538"]]
+  [1m[36mPgSearch::Document Load (1.3ms)[0m  [1m[34mSELECT  "pg_search_documents".* FROM "pg_search_documents" WHERE "pg_search_documents"."searchable_id" = $1 AND "pg_search_documents"."searchable_type" = $2 LIMIT $3[0m  [["searchable_id", 9], ["searchable_type", "Song"], ["LIMIT", 1]]
+  [1m[35mSQL (6.6ms)[0m  [1m[32mINSERT INTO "pg_search_documents" ("content", "searchable_type", "searchable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", " "], ["searchable_type", "Song"], ["searchable_id", 9], ["created_at", "2018-05-26 14:40:56.051242"], ["updated_at", "2018-05-26 14:40:56.051242"]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/songs/show
+Completed 302 Found in 117ms (ActiveRecord: 23.7ms)
+
+
+Started GET "/songs/show" for 127.0.0.1 at 2018-05-26 17:40:56 +0300
+Processing by SongsController#show as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (24.9ms)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1>You save a song into the database </h1>
+    2: <p>
+    3:   <strong>Song:</strong>
+    4:   <%= @song.name %>
+    5: 
+    6: </p>
+  
+app/views/songs/show.html.erb:4:in `_app_views_songs_show_html_erb___2492688484091409834_47289344688300'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7310183476542064440)[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSongs (20180526144333)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (56.4ms)[0m  [1m[35mCREATE TABLE "songs" ("id" bigserial primary key, "name" character varying, "artist" character varying, "capo" integer, "strumming" character varying, "chords" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7310183476542064440)[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (176.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ChordsLearning_development"[0m
+  [1m[35m (154.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ChordsLearning_test"[0m
+  [1m[35m (129.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ChordsLearning_development"[0m
+  [1m[35m (132.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ChordsLearning_test"[0m
+  [1m[35m (26.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7310183476542064440)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20180326133443)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (36.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (3.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180326133443"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateArtists (20180521175333)
+  [1m[35m (3.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (36.9ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "id_artist" integer, "song_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_4bdb31a68e"
+FOREIGN KEY ("song_id")
+  REFERENCES "songs" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(7310183476542064440)[0m

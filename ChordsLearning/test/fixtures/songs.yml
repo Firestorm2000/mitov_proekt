@@ -3,13 +3,15 @@
 one:
   name: MyString
   artist: MyString
-  chords: MyText
-  strumming: MyText
   capo: 1
+  strumming: MyString
+  chords: MyText
+  user: one
 
 two:
   name: MyString
   artist: MyString
-  chords: MyText
-  strumming: MyText
   capo: 1
+  strumming: MyString
+  chords: MyText
+  user: two

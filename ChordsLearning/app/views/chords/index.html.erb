@@ -16,9 +16,9 @@
       <tr>
         <td id="chord"><%= chord.chord %></td>
         <tr></tr>
-        <td><%= button_to 'Show', chord %></td>
-        <td><%= button_to 'Edit', edit_chord_path(chord) %></td>
-        <td><%= button_to 'Destroy', chord, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', chord %></td>
+        <td><%= link_to 'Edit', edit_chord_path(chord) %></td>
+        <td><%= link_to 'Destroy', chord, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

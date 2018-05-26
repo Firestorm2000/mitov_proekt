@@ -1,1 +1,34 @@
-<h1>You save a song into the database </h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @song.name %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @song.artist %>
+</p>
+
+<p>
+  <strong>Capo:</strong>
+  <%= @song.capo %>
+</p>
+
+<p>
+  <strong>Strumming:</strong>
+  <%= @song.strumming %>
+</p>
+
+<p>
+  <strong>Chords:</strong>
+  <%= @song.chords %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @song.user %>
+</p>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
