@@ -3,9 +3,11 @@
 one:
   name: MyString
   id_artist: 1
+  song: MyString
   song: one
 
 two:
   name: MyString
   id_artist: 1
+  song: MyString
   song: two

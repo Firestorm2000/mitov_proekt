@@ -1,4 +1,3 @@
-<%= stylesheet_link_tag "artists"%>
 <p id="notice"><%= notice %></p>
 
 <h1>Artists</h1>
@@ -9,6 +8,7 @@
       <th>Name</th>
       <th>Id artist</th>
       <th>Song</th>
+      <th>Song</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,11 @@
   <tbody>
     <% @artists.each do |artist| %>
       <tr>
-        <%-# commented line -%>
         <td><%= artist.name %></td>
         <td><%= artist.id_artist %></td>
-        <td><%=link_to 'Show', artist %></td>
+        <td><%= artist.song %></td>
+        <td><%= artist.song %></td>
+        <td><%= link_to 'Show', artist %></td>
         <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
         <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

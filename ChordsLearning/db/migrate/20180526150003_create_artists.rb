@@ -3,6 +3,7 @@ class CreateArtists < ActiveRecord::Migration[5.1]
     create_table :artists do |t|
       t.string :name
       t.integer :id_artist
+      t.string :song
       t.references :song, foreign_key: true
 
       t.timestamps
