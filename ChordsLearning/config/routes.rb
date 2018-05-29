@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+
   resources :songs
   resources :chords
   resources :artists
   devise_for :users
   resources :home
   root to: "home#index"
+
  get 'songs/new' => 'songs#new'
  post 'songs/new' => 'songs#create' 
  get 'songs/show' => 'songs#show'
