@@ -14896,3 +14896,1128 @@ Processing by ArtistsController#index as HTML
 Completed 200 OK in 47ms (Views: 43.0ms | ActiveRecord: 2.5ms)
 
 
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 03:15:53 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (68.3ms)
+Completed 200 OK in 790ms (Views: 702.3ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=j" for 127.0.0.1 at 2018-05-30 03:15:59 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"j"}
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (12.5ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <% @results.each do |result| %>
+    2:             <% case result.class.to_s %>
+    3:                 <% when "User" %>
+    4:                     <li><%= "User: #{users.username}" %></li>
+  
+app/views/search/index.html.erb:1:in `_app_views_search_index_html_erb___2854302420918591337_70347504782240'
+Started GET "/search?utf8=%E2%9C%93&search=j" for 127.0.0.1 at 2018-05-30 03:17:31 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"j"}
+  [1m[36mArtist Load (1.9ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE (name  LIKE '%%')[0m
+  [1m[36mSong Load (48.0ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE (name || ' ' || artist LIKE '%%')[0m
+  [1m[36mChord Load (0.4ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 135ms (Views: 50.3ms | ActiveRecord: 58.5ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=j" for 127.0.0.1 at 2018-05-30 03:18:02 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"j"}
+  [1m[36mChord Load (0.2ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (415.9ms)
+Completed 500 Internal Server Error in 423ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `chord' for #<#<Class:0x00007ff6144242f0>:0x00007ff6143b8078>
+Did you mean?  @chords):
+     7:                 <% when "Song" %>
+     8:                     <li><%= "Song: #{song.name}" %></li>
+     9:                 <% when "Chord" %>
+    10:                     <li><%= "Chord: #{chord.chord}" %></li>
+    11:             <% end %>
+    12:         <% end %>
+  
+app/views/search/index.html.erb:10:in `block in _app_views_search_index_html_erb___2854302420918591337_70347439064540'
+app/views/search/index.html.erb:1:in `each'
+app/views/search/index.html.erb:1:in `_app_views_search_index_html_erb___2854302420918591337_70347439064540'
+Started GET "/search?utf8=%E2%9C%93&search=j" for 127.0.0.1 at 2018-05-30 03:18:24 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"j"}
+  [1m[36mChord Load (3.3ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (511.3ms)
+Completed 500 Internal Server Error in 522ms (ActiveRecord: 3.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `chord' for #<#<Class:0x00007ff6144242f0>:0x00007ff60978f030>
+Did you mean?  @chords):
+     7:                 <% when "Song" %>
+     8:                     <li><%= "Song: #{song.name}" %></li>
+     9:                 <% when "Chord" %>
+    10:                     <li><%= "Chord: #{chord.chords}" %></li>
+    11:             <% end %>
+    12:         <% end %>
+  
+app/views/search/index.html.erb:10:in `block in _app_views_search_index_html_erb___2854302420918591337_70347348566980'
+app/views/search/index.html.erb:1:in `each'
+app/views/search/index.html.erb:1:in `_app_views_search_index_html_erb___2854302420918591337_70347348566980'
+Started GET "/search?utf8=%E2%9C%93&search=j" for 127.0.0.1 at 2018-05-30 03:18:27 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"j"}
+  [1m[36mChord Load (1.5ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (406.0ms)
+Completed 500 Internal Server Error in 415ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `chord' for #<#<Class:0x00007ff6144242f0>:0x00007ff60a281f38>
+Did you mean?  @chords):
+     7:                 <% when "Song" %>
+     8:                     <li><%= "Song: #{song.name}" %></li>
+     9:                 <% when "Chord" %>
+    10:                     <li><%= "Chord: #{chord.chords}" %></li>
+    11:             <% end %>
+    12:         <% end %>
+  
+app/views/search/index.html.erb:10:in `block in _app_views_search_index_html_erb___2854302420918591337_70347354543220'
+app/views/search/index.html.erb:1:in `each'
+app/views/search/index.html.erb:1:in `_app_views_search_index_html_erb___2854302420918591337_70347354543220'
+Started GET "/search?utf8=%E2%9C%93&search=j" for 127.0.0.1 at 2018-05-30 03:18:37 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"j"}
+  [1m[36mChord Load (1.6ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (421.1ms)
+Completed 500 Internal Server Error in 428ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `chords' for #<#<Class:0x00007ff6144242f0>:0x00007ff60a268df8>
+Did you mean?  @chords):
+     7:                 <% when "Song" %>
+     8:                     <li><%= "Song: #{song.name}" %></li>
+     9:                 <% when "Chord" %>
+    10:                     <li><%= "Chord: #{chords.chord}" %></li>
+    11:             <% end %>
+    12:         <% end %>
+  
+app/views/search/index.html.erb:10:in `block in _app_views_search_index_html_erb___2854302420918591337_70347354491860'
+app/views/search/index.html.erb:1:in `each'
+app/views/search/index.html.erb:1:in `_app_views_search_index_html_erb___2854302420918591337_70347354491860'
+Started GET "/search?utf8=%E2%9C%93&search=j" for 127.0.0.1 at 2018-05-30 03:18:50 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"j"}
+  [1m[36mChord Load (1.8ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (291.8ms)
+Completed 500 Internal Server Error in 302ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `chord' for #<#<Class:0x00007ff6144242f0>:0x00007ff61c3246b8>
+Did you mean?  @chords):
+     7:                 <% when "Song" %>
+     8:                     <li><%= "Song: #{song.name}" %></li>
+     9:                 <% when "Chord" %>
+    10:                     <li><%= "Chord: #{chord}" %></li>
+    11:             <% end %>
+    12:         <% end %>
+  
+app/views/search/index.html.erb:10:in `block in _app_views_search_index_html_erb___2854302420918591337_70347505870900'
+app/views/search/index.html.erb:1:in `each'
+app/views/search/index.html.erb:1:in `_app_views_search_index_html_erb___2854302420918591337_70347505870900'
+Started GET "/search?utf8=%E2%9C%93&search=j" for 127.0.0.1 at 2018-05-30 03:18:53 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"j"}
+  [1m[36mChord Load (0.3ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (476.9ms)
+Completed 500 Internal Server Error in 485ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `chord' for #<#<Class:0x00007ff6144242f0>:0x00007ff609ca02b8>
+Did you mean?  @chords):
+     7:                 <% when "Song" %>
+     8:                     <li><%= "Song: #{song.name}" %></li>
+     9:                 <% when "Chord" %>
+    10:                     <li><%= "Chord: #{chord}" %></li>
+    11:             <% end %>
+    12:         <% end %>
+  
+app/views/search/index.html.erb:10:in `block in _app_views_search_index_html_erb___2854302420918591337_70347351459380'
+app/views/search/index.html.erb:1:in `each'
+app/views/search/index.html.erb:1:in `_app_views_search_index_html_erb___2854302420918591337_70347351459380'
+Started GET "/search?utf8=%E2%9C%93&search=j" for 127.0.0.1 at 2018-05-30 03:19:42 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"j"}
+  [1m[36mChord Load (0.2ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 50ms (Views: 44.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=j" for 127.0.0.1 at 2018-05-30 03:20:00 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"j"}
+  [1m[36mChord Load (0.2ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 45ms (Views: 38.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=g" for 127.0.0.1 at 2018-05-30 03:20:05 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"g"}
+  [1m[36mChord Load (0.4ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 42ms (Views: 35.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 03:20:07 -0700
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.9ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (2.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 51ms (Views: 40.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 03:20:08 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (1.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 64ms (Views: 58.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=adele" for 127.0.0.1 at 2018-05-30 03:20:13 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"adele"}
+  [1m[36mChord Load (0.5ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 44.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=adele" for 127.0.0.1 at 2018-05-30 03:20:50 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"adele"}
+  [1m[36mChord Load (0.2ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 36.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=h" for 127.0.0.1 at 2018-05-30 03:20:53 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"h"}
+  [1m[36mChord Load (0.2ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 57ms (Views: 51.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=adele" for 127.0.0.1 at 2018-05-30 03:20:58 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"adele"}
+  [1m[36mChord Load (0.2ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 58ms (Views: 51.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 03:21:02 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 57ms (Views: 51.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=a" for 127.0.0.1 at 2018-05-30 03:21:06 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"a"}
+  [1m[36mChord Load (0.2ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 54ms (Views: 44.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 03:21:10 -0700
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 58ms (Views: 53.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=e" for 127.0.0.1 at 2018-05-30 03:21:18 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"e"}
+  [1m[36mChord Load (1.5ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 62ms (Views: 53.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 03:21:22 -0700
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 57ms (Views: 54.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-30 03:21:23 -0700
+Processing by ChordsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (1.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 95ms (Views: 43.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 03:21:24 -0700
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (1.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (1.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 54ms (Views: 48.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=1" for 127.0.0.1 at 2018-05-30 03:21:27 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"1"}
+  [1m[36mChord Load (0.3ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 53ms (Views: 46.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=g" for 127.0.0.1 at 2018-05-30 03:21:30 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"g"}
+  [1m[36mChord Load (0.2ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 46ms (Views: 41.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=s" for 127.0.0.1 at 2018-05-30 03:21:32 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"s"}
+  [1m[36mChord Load (0.2ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 53ms (Views: 43.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=g" for 127.0.0.1 at 2018-05-30 03:21:34 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"g"}
+  [1m[36mChord Load (0.2ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 62ms (Views: 56.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=hello" for 127.0.0.1 at 2018-05-30 03:21:39 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"hello"}
+  [1m[36mChord Load (1.7ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 59ms (Views: 52.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=hello" for 127.0.0.1 at 2018-05-30 03:22:32 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"hello"}
+  [1m[36mChord Load (0.2ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 42ms (Views: 34.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=h" for 127.0.0.1 at 2018-05-30 03:22:35 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"h"}
+  [1m[36mChord Load (1.9ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 63ms (Views: 56.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=adele" for 127.0.0.1 at 2018-05-30 03:22:39 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"adele"}
+  [1m[36mChord Load (0.6ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 55ms (Views: 49.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:36:41 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (86.9ms)
+Completed 200 OK in 878ms (Views: 724.0ms | ActiveRecord: 38.1ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 10:36:48 -0700
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 94ms (Views: 44.5ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-30 10:36:54 -0700
+Processing by ChordsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (0.3ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 71ms (Views: 30.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:36:58 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 48ms (Views: 41.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=adele" for 127.0.0.1 at 2018-05-30 10:37:04 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"adele"}
+  [1m[36mChord Load (25.3ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 62ms (Views: 30.0ms | ActiveRecord: 25.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=hello" for 127.0.0.1 at 2018-05-30 10:37:13 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"hello"}
+  [1m[36mChord Load (0.4ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  [1m[36mCACHE Chord Load (0.0ms)[0m  [1m[34mSELECT "chords".* FROM "chords" WHERE (chord LIKE '%%')[0m
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 50ms (Views: 43.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:37:16 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 41ms (Views: 38.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:38:32 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 44ms (Views: 39.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at 2018-05-30 10:38:37 -0700
+Processing by SongsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/new.html.erb within layouts/application
+  Rendered songs/_form.html.erb (132.7ms)
+  Rendered songs/new.html.erb within layouts/application (137.9ms)
+Completed 200 OK in 222ms (Views: 164.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at 2018-05-30 10:39:14 -0700
+Processing by SongsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/new.html.erb within layouts/application
+  Rendered songs/_form.html.erb (7.2ms)
+  Rendered songs/new.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 53ms (Views: 50.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at 2018-05-30 10:40:19 -0700
+Processing by SongsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/new.html.erb within layouts/application
+  Rendered songs/_form.html.erb (9.7ms)
+  Rendered songs/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 50ms (Views: 47.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:43:55 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (2.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 64ms (Views: 57.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/songs/1" for 127.0.0.1 at 2018-05-30 10:43:57 -0700
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (1.7ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 91ms (Views: 42.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/songs/1/edit" for 127.0.0.1 at 2018-05-30 10:44:05 -0700
+Processing by SongsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (1.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/edit.html.erb within layouts/application
+  Rendered songs/_form.html.erb (8.1ms)
+  Rendered songs/edit.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 90ms (Views: 31.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/songs/1" for 127.0.0.1 at 2018-05-30 10:44:09 -0700
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (1.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 59ms (Views: 50.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:44:10 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (1.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 56ms (Views: 50.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:44:13 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 56ms (Views: 53.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-30 10:44:14 -0700
+Processing by ChordsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (0.6ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 44ms (Views: 41.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/chords/new" for 127.0.0.1 at 2018-05-30 10:44:54 -0700
+Processing by ChordsController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/new.html.erb within layouts/application
+  Rendered chords/_form.html.erb (1.4ms)
+  Rendered chords/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 80ms (Views: 36.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-30 10:45:47 -0700
+Processing by ChordsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (0.2ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 61ms (Views: 54.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/chords/new" for 127.0.0.1 at 2018-05-30 10:45:49 -0700
+Processing by ChordsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/new.html.erb within layouts/application
+  Rendered chords/_form.html.erb (3.3ms)
+  Rendered chords/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 65ms (Views: 62.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-30 10:45:51 -0700
+Processing by ChordsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (2.4ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 46ms (Views: 42.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 10:45:52 -0700
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (1.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (1.9ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 40ms (Views: 33.1ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/artists/new" for 127.0.0.1 at 2018-05-30 10:45:53 -0700
+Processing by ArtistsController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/new.html.erb within layouts/application
+  Rendered artists/_form.html.erb (1.9ms)
+  Rendered artists/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 77ms (Views: 30.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 10:45:56 -0700
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.6ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (2.6ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 58ms (Views: 52.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/artists/1" for 127.0.0.1 at 2018-05-30 10:45:58 -0700
+Processing by ArtistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/show.html.erb within layouts/application
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 65ms (Views: 26.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 10:46:03 -0700
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (3.7ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 54ms (Views: 46.5ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:46:05 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (2.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 49ms (Views: 44.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 10:46:06 -0700
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (2.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 68ms (Views: 60.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:46:07 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 55ms (Views: 51.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:53:41 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 2885ms (Views: 2876.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:55:03 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (2.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 1612ms (Views: 1603.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:55:51 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (2.0ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 1654ms (Views: 1648.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:56:42 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 1517ms (Views: 1514.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:56:54 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 1387ms (Views: 1382.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at 2018-05-30 10:57:05 -0700
+Processing by SongsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/new.html.erb within layouts/application
+  Rendered songs/_form.html.erb (3.7ms)
+  Rendered songs/new.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 81ms (Views: 54.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/songs" for 127.0.0.1 at 2018-05-30 10:57:41 -0700
+Processing by SongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DrMN6s5lsyJ8q2ZwqhpD++XbZABmTxiMeTyx0PcwbwRUKJEnX3Hu2AwZSCAMppAG3LThNk+MJ6ArCdbzGvDdwQ==", "song"=>{"name"=>"Rolling in the deep", "artist"=>"adele", "capo"=>"1", "strumming"=>"asd", "chords"=>"DSFASD", "user_id"=>"1"}, "commit"=>"Create Song"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (143.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "artist", "capo", "strumming", "chords", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Rolling in the deep"], ["artist", "adele"], ["capo", 1], ["strumming", "asd"], ["chords", "DSFASD"], ["user_id", 1], ["created_at", "2018-05-30 17:57:41.951154"], ["updated_at", "2018-05-30 17:57:41.951154"]]
+  [1m[35m (52.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/songs/2
+Completed 302 Found in 203ms (ActiveRecord: 196.4ms)
+
+
+Started GET "/songs/2" for 127.0.0.1 at 2018-05-30 10:57:42 -0700
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (1.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 127ms (Views: 113.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-30 10:57:46 -0700
+Processing by ChordsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (3.1ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 94ms (Views: 33.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:57:48 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 42ms (Views: 36.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:57:55 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 1374ms (Views: 1367.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:58:07 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 44ms (Views: 40.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:58:12 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 49ms (Views: 46.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:58:18 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (1.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 36ms (Views: 32.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-30 10:58:19 -0700
+Processing by ChordsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (0.3ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 27ms (Views: 23.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 10:58:20 -0700
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 76ms (Views: 30.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 10:58:26 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 57ms (Views: 52.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 11:02:03 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 51ms (Views: 44.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 11:02:15 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 53ms (Views: 47.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 11:02:17 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 62ms (Views: 60.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 11:02:18 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 47ms (Views: 43.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 11:02:19 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (1.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 78ms (Views: 71.9ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-30 11:02:19 -0700
+Processing by ChordsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (2.9ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 67ms (Views: 62.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 11:02:20 -0700
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (3.8ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 59ms (Views: 50.6ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-30 11:02:21 -0700
+Processing by ChordsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (0.3ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 72ms (Views: 70.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 11:02:21 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (1.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 75ms (Views: 69.0ms | ActiveRecord: 4.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-05-30 11:02:25 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2FK66ARIbXsFncwz3tbfQCX77/+Thicm3/HYmLDsRHpeTAFJje6xhn/Gr/qN5Hr8T47W1W4FDFtokMeySxAB+A=="}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 50ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-30 11:02:25 -0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 86ms (Views: 67.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-30 11:02:30 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (53.6ms)
+Completed 200 OK in 135ms (Views: 98.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-30 11:02:33 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6DjX9O6S5iMkMv9d+3npRUhsBB9BEG9ZTJ2gMdc9mhoE9rjtbvK9gFt7b+10dpWrkBfkTZOYCpCs9FwBPGSXBw==", "user"=>{"email"=>"ste.grozev.tues19@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (32.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ste.grozev.tues19@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (41.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-05-30 18:02:34.305281"], ["last_sign_in_at", "2018-05-30 10:10:55.082783"], ["sign_in_count", 11], ["updated_at", "2018-05-30 18:02:34.306131"], ["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 674ms (ActiveRecord: 74.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-30 11:02:34 -0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 39ms (Views: 37.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs" for 127.0.0.1 at 2018-05-30 11:02:36 -0700
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (3.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered songs/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 66ms (Views: 57.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2018-05-30 11:02:38 -0700
+Processing by ArtistsController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (2.8ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mSong Load (1.8ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered artists/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 55ms (Views: 45.5ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/chords" for 127.0.0.1 at 2018-05-30 11:02:39 -0700
+Processing by ChordsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chords/index.html.erb within layouts/application
+  [1m[36mChord Load (0.3ms)[0m  [1m[34mSELECT "chords".* FROM "chords"[0m
+  Rendered chords/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 74ms (Views: 68.8ms | ActiveRecord: 1.1ms)
+
+
