@@ -2,12 +2,11 @@
 
 <h1>Artists</h1>
 
-<table>
+<table class="table table-dark">
   <thead>
     <tr>
       <th>Name</th>
       <th>Id artist</th>
-      <th>Song</th>
       <th>Song</th>
       <th colspan="3"></th>
     </tr>
@@ -18,11 +17,10 @@
       <tr>
         <td><%= artist.name %></td>
         <td><%= artist.id_artist %></td>
-        <td><%= artist.song %></td>
-        <td><%= artist.song %></td>
-        <td><%= link_to 'Show', artist %></td>
-        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= artist.song.name %></td>
+        <td><%= link_to 'Show', artist, class: :btn %></td>
+        <td><%= link_to 'Edit', edit_artist_path(artist), class: :btn %></td>
+        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' }, class: :btn %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Artist', new_artist_path %>
+<%= link_to 'New Artist', new_artist_path, class: :btn %>

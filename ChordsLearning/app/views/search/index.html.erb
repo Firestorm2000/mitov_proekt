@@ -1,0 +1,12 @@
+<% @results.each do |result| %>
+            <% case result.class.to_s %>
+                <% when "User" %>
+                    <li><%= "User: #{result.username}" %></li>
+                <% when "Artist" %>
+                    <li><%= "Artist: #{result.name}" %></li>
+                <% when "Song" %>
+                    <li><%= "Song: #{result.name}" %></li>
+                <% when "Chord" %>
+                    <li><%= "Chord: #{result.chord}" %></li>
+            <% end %>
+        <% end %>

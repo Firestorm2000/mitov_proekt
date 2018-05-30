@@ -2,7 +2,7 @@
 
 <h1>Songs</h1>
 
-<table>
+<table class="table table-dark">
   <thead>
     <tr>
       <th>Name</th>
@@ -23,10 +23,10 @@
         <td><%= song.capo %></td>
         <td><%= song.strumming %></td>
         <td><%= song.chords %></td>
-        <td><%= song.user %></td>
-        <td><%= link_to 'Show', song %></td>
-        <td><%= link_to 'Edit', edit_song_path(song) %></td>
-        <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= song.user.email %></td>
+        <td><%= link_to 'Show', song ,class: :btn%></td>
+        <td><%= link_to 'Edit', edit_song_path(song),class: :btn %></td>
+        <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } ,class: :btn%></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Song', new_song_path %>
+<%= link_to 'New Song', new_song_path,class: :btn %>

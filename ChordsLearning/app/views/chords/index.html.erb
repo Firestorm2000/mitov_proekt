@@ -3,11 +3,10 @@
 
 <h1>Chords</h1>
 
-<table>
+<table class="table table-dark">
   <thead>
     <tr>
       <th>Chord</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -15,10 +14,9 @@
     <% @chords.each do |chord| %>
       <tr>
         <td id="chord"><%= chord.chord %></td>
-        <tr></tr>
-        <td><%= link_to 'Show', chord %></td>
-        <td><%= link_to 'Edit', edit_chord_path(chord) %></td>
-        <td><%= link_to 'Destroy', chord, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', chord ,class: :btn%></td>
+        <td><%= link_to 'Edit', edit_chord_path(chord),class: :btn %></td>
+        <td><%= link_to 'Destroy', chord, method: :delete, data: { confirm: 'Are you sure?' },class: :btn %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Chord', new_chord_path %>
+<%= link_to 'New Chord', new_chord_path,class: :btn %>

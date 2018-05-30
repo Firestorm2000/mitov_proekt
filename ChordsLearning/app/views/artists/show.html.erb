@@ -1,24 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
+<table class="table table-dark">
+<thead>
+  <tr>
+    <th>Name:</th>
+    <th>Id artist:</th>
+    <th>Song:</th>
+  </tr>
+</thead>
+<tbody>
+  <td> <%= @artist.name %></td>
+  <td> <%= @artist.id_artist %></td>
+  <td> <%= @artist.song.name %></td>
 </p>
-
-<p>
-  <strong>Id artist:</strong>
-  <%= @artist.id_artist %>
-</p>
-
-<p>
-  <strong>Song:</strong>
-  <%= @artist.song %>
-</p>
-
-<p>
-  <strong>Song:</strong>
-  <%= @artist.song %>
-</p>
-
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+<tbody>
+</table>
+<%= link_to 'Edit', edit_artist_path(@artist), class: :btn %> |
+<%= link_to 'Back', artists_path, class: :btn %>

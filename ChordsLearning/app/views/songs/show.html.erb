@@ -1,34 +1,24 @@
 <p id="notice"><%= notice %></p>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <td>Name:</td>
+      <td>Artist:</td>
+      <td>Capo:</td>
+      <td>Strumming:</td>
+      <td>Chords:</td>
+      <td>User:</td>
+    </tr>
+  </thead>
+  <tbody>
+    <td><%= @song.name %></td>
+    <td><%= @song.artist%></td>
+    <td><%= @song.capo %></td>
+    <td><%= @song.strumming %></td>
+    <td><%= @song.chords  %></td>
+    <td><%= @song.user.email  %></td>
+  </tbody>
+</table>
 
-<p>
-  <strong>Name:</strong>
-  <%= @song.name %>
-</p>
-
-<p>
-  <strong>Artist:</strong>
-  <%= @song.artist %>
-</p>
-
-<p>
-  <strong>Capo:</strong>
-  <%= @song.capo %>
-</p>
-
-<p>
-  <strong>Strumming:</strong>
-  <%= @song.strumming %>
-</p>
-
-<p>
-  <strong>Chords:</strong>
-  <%= @song.chords %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @song.user %>
-</p>
-
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>
+<%= link_to 'Edit', edit_song_path(@song) ,class: :btn%> |
+<%= link_to 'Back', songs_path ,class: :btn%>
